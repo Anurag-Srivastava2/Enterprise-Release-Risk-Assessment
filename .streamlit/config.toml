@@ -1,0 +1,27 @@
+[theme]
+base = "light"
+primaryColor = "#6D28D9"
+backgroundColor = "#F7F8FC"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#182230"
+linkColor = "#4F46E5"
+borderColor = "#E4E7EC"
+showWidgetBorder = true
+
+redColor = "#D92D20"
+orangeColor = "#DC6803"
+yellowColor = "#CA8500"
+greenColor = "#079455"
+blueColor = "#1570EF"
+violetColor = "#7F56D9"
+grayColor = "#667085"
+
+chartCategoricalColors = [
+  "#6D28D9",
+  "#1570EF",
+  "#079455",
+  "#DC6803",
+  "#D92D20",
+  "#DB2777",
+  "#0891B2",
+]
