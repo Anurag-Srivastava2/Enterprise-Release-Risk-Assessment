@@ -1,0 +1,5 @@
+streamlit>=1.57
+python-dotenv>=1.0
+crewai[google-genai]
+langfuse>=4.7.0,<5.0.0
+openinference-instrumentation-crewai
