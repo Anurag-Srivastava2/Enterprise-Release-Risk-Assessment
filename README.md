@@ -30,6 +30,24 @@ CrewAI child/LLM observations. Root input/output, session ID, and assessment
 metadata are included. When none are configured, assessments can run without
 tracing.
 
+## Deploy to Streamlit Community Cloud
+
+Deploy `app.py` from the root of the `main` branch. In the app's **Manage app**
+settings, add the following TOML under **Secrets**, replacing the placeholders
+with your own credentials:
+
+```toml
+GEMINI_API_KEY = "your_google_gemini_api_key"
+GEMINI_MODEL = "gemini-3.1-flash-lite-preview"
+LANGFUSE_PUBLIC_KEY = "your_langfuse_public_key"
+LANGFUSE_SECRET_KEY = "your_langfuse_secret_key"
+LANGFUSE_BASE_URL = "https://us.cloud.langfuse.com"
+```
+
+The app reads these values from Streamlit Secrets and uses them for the
+environment-based CrewAI and Langfuse configuration. Keep credentials in
+Streamlit Secrets or a local `.env`; never commit either to GitHub.
+
 ## Run
 
 ```powershell

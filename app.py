@@ -12,14 +12,23 @@ from release_assessment import (
     validate_release_data,
 )
 
-load_dotenv()
-
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
 LANGFUSE_ENV_VARS = (
     "LANGFUSE_SECRET_KEY",
     "LANGFUSE_PUBLIC_KEY",
     "LANGFUSE_BASE_URL",
 )
+
+load_dotenv()
+try:
+    streamlit_secrets = st.secrets
+except FileNotFoundError:
+    streamlit_secrets = {}
+
+for name in ("GEMINI_API_KEY", "GEMINI_MODEL", *LANGFUSE_ENV_VARS):
+    if not os.getenv(name) and name in streamlit_secrets:
+        os.environ[name] = str(streamlit_secrets[name])
+
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite-preview")
 
 st.set_page_config(
     page_title="Enterprise Release Risk Assessment",
